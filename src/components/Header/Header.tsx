@@ -1,5 +1,7 @@
+import FontSelection from '../FontSelection/FontSelection';
+import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
 import { Logo, LogoIcon } from '../UI/Logo';
-import { HeaderStyled } from './Header.styled';
+import { ActionContainer, HeaderStyled } from './Header.styled';
 
 const Header = () => {
   return (
@@ -8,6 +10,10 @@ const Header = () => {
         <LogoIcon />
         <span>WonderWords</span>
       </Logo>
+      <ActionContainer>
+        <FontSelection />
+        <ThemeSwitcher />
+      </ActionContainer>
     </HeaderStyled>
   );
 };
