@@ -54,10 +54,6 @@ const WordSection = () => {
             The idea was so crazy that it is a wonder that anyone went along
             with it.
           </TextExemple>
-
-          <SynonymsWords>
-            Synonyms: <a href="#">words, newWord</a>
-          </SynonymsWords>
         </WordDefinitionContainer>
         <WordDefinitionContainer>
           <WordDefinition>

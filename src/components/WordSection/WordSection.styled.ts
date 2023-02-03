@@ -68,6 +68,8 @@ export const TextExemple = styled.p`
   margin-bottom: 10px;
 `;
 
+export const SynonymsContainer = styled.div``;
+
 export const SynonymsWords = styled.h5`
   font-size: 18px;
   font-style: italic;
