@@ -1,6 +1,6 @@
 import FontSelection from '../FontSelection/FontSelection';
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
-import { Logo, LogoIcon } from '../UI/Logo';
+import { Logo, LogoIcon } from '../UI/Logo/Logo';
 import { ActionContainer, HeaderStyled } from './Header.styled';
 
 const Header = () => {

@@ -9,5 +9,6 @@ export const FontSelectionStyled = styled.select`
     padding-inline: 8px;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 16px;
   `}
 `;

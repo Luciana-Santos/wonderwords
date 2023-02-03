@@ -5,6 +5,7 @@ export const GlobalStyles = createGlobalStyle`
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Josefin sans', sans-serif;
   }
 
   html {
@@ -32,16 +33,16 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    height: 100vh;
+    min-height: 100vh;
     line-height: 1.5;
     position: relative;
     color: #cecccf;
-    overflow: hidden;
     background: ${({ theme }) => theme.colors.background};
+    font-family: 'Josefin sans', sans-serif;
   }
 `;
 
 export const Container = styled.div`
-  width: min(100% - 2rem, 46rem);
+  width: min(100% - 2rem, 42rem);
   margin-inline: auto;
 `;
