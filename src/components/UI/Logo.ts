@@ -6,6 +6,7 @@ export const Logo = styled.div`
   gap: 6px;
   align-items: center;
   font-family: 'Source Serif Pro', serif;
+  color: ${({ theme }) => theme.colors.text};
 
   span {
     font-size: 20px;
@@ -14,4 +15,5 @@ export const Logo = styled.div`
 
 export const LogoIcon = styled(GiBookStorm)`
   font-size: 28px;
+  color: ${({ theme }) => theme.colors.accent};
 `;

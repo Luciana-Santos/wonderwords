@@ -37,10 +37,11 @@ export const GlobalStyles = createGlobalStyle`
     position: relative;
     color: #cecccf;
     overflow: hidden;
+    background: ${({ theme }) => theme.colors.background};
   }
 `;
 
 export const Container = styled.div`
-  width: min(100% - 2rem, 52rem);
+  width: min(100% - 2rem, 46rem);
   margin-inline: auto;
 `;
