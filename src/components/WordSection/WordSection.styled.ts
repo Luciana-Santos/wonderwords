@@ -2,7 +2,8 @@ import { AiFillPlayCircle } from 'react-icons/ai';
 import styled from 'styled-components';
 
 export const WordSectionStyled = styled.section`
-  padding-block: 60px;
+  padding-block: 40px 20px;
+  border-bottom: 2px solid ${({ theme }) => theme.colors.secondary};
 `;
 
 export const WordSectionHeader = styled.header`
@@ -47,7 +48,7 @@ export const WordClass = styled.h4`
 
 export const WordDefinitionContainer = styled.div`
   display: grid;
-  gap: 20px;
+  gap: 10px;
   margin-bottom: 20px;
 `;
 
@@ -73,11 +74,13 @@ export const SynonymsContainer = styled.div``;
 export const SynonymsWords = styled.h5`
   font-size: 18px;
   font-style: italic;
+  color: ${({ theme }) => theme.colors.text};
 
   a {
     font-weight: 400;
     font-style: normal;
-    padding-block: 2px;
+    font-weight: 400;
     border-bottom: 1px solid;
+    color: ${({ theme }) => theme.colors.accent};
   }
 `;

@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { ThemeProvider } from 'styled-components';
+import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 import { Container, GlobalStyles } from './GlobalStyled';
@@ -14,6 +15,7 @@ const App = () => {
       <Container>
         <Header />
         <Main />
+        <Footer />
       </Container>
     </ThemeProvider>
   );

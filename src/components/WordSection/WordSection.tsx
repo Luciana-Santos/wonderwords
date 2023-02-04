@@ -65,7 +65,7 @@ const WordSection = () => {
           </TextExemple>
 
           <SynonymsWords>
-            Synonyms: <a href="#">words, newWord</a>
+            Synonyms: <a href="#">words</a>, <a href="#">newWord</a>
           </SynonymsWords>
         </WordDefinitionContainer>
       </WordMeaning>
