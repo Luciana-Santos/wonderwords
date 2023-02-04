@@ -8,7 +8,7 @@ const Header = () => {
     <HeaderStyled>
       <Logo>
         <LogoIcon />
-        <span>WonderWord</span>
+        <span>WonderWords</span>
       </Logo>
       <ActionContainer>
         <FontSelection />
