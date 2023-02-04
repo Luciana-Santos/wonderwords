@@ -1,12 +1,20 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle, css } from 'styled-components';
 
-export const GlobalStyles = createGlobalStyle`
-  *, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Josefin sans', sans-serif;
-  }
+interface FontSelectedProp {
+  fontSelected: string;
+}
+
+export const GlobalStyles = createGlobalStyle<FontSelectedProp>`
+  ${({ fontSelected }) => css`
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: ${fontSelected};
+    }
+  `}
 
   html {
     scroll-behavior: smooth;

@@ -56,7 +56,7 @@ export const WordDefinition = styled.h5`
   font-size: 20px;
   padding-left: 16px;
   border-left: 6px solid ${({ theme }) => theme.colors.secondary};
-  line-height: 24px;
+  line-height: unset;
   color: ${({ theme }) => theme.colors.text};
 `;
 
@@ -64,7 +64,7 @@ export const TextExemple = styled.p`
   font-style: italic;
   font-size: 20px;
   padding-left: 20px;
-  line-height: 24px;
+  line-height: unset;
   color: ${({ theme }) => theme.colors.text};
   margin-bottom: 10px;
 `;

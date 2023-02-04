@@ -1,11 +1,20 @@
+import { useContext } from 'react';
+import { FontFamilyContext } from '../../store/FontFamilyContext';
 import { FontSelectionStyled } from './FontSelection.styled';
 
 const FontSelection = () => {
+  const { changeFontHandler } = useContext(FontFamilyContext);
+
+  const handleFontSelection = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    console.log(e.target.value);
+    changeFontHandler(e.target.value);
+  };
+
   return (
-    <FontSelectionStyled>
-      <option>serif</option>
-      <option>sans-serif</option>
-      <option>mono</option>
+    <FontSelectionStyled onChange={handleFontSelection}>
+      <option value="serif">serif</option>
+      <option value="sans-serif">sans-serif</option>
+      <option value="mono">mono</option>
     </FontSelectionStyled>
   );
 };

@@ -21,9 +21,7 @@ export interface ThemeProps {
   };
 }
 
-export const ThemeContext = createContext<ThemeContextProps>(
-  {} as ThemeContextProps
-);
+export const ThemeContext = createContext({} as ThemeContextProps);
 
 const ThemeProvider = ({ children }: ChildrenProps) => {
   const [theme, setTheme] = useState(() => {
