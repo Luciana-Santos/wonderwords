@@ -17,8 +17,8 @@ const WordSection = () => {
     <WordSectionStyled>
       <WordSectionHeader>
         <div>
-          <WordTitle>wonder</WordTitle>
-          <WordPronunciation>/ˈwʌndə/</WordPronunciation>
+          <WordTitle>word</WordTitle>
+          <WordPronunciation>/'aheuh'/</WordPronunciation>
         </div>
         <AudioPlayer />
       </WordSectionHeader>
@@ -42,7 +42,6 @@ const WordSection = () => {
           </TextExemple>
         </WordDefinitionContainer>
       </WordMeaning>
-
       <WordMeaning>
         <WordClass>verb</WordClass>
         <WordDefinitionContainer>
@@ -69,6 +68,7 @@ const WordSection = () => {
           </SynonymsWords>
         </WordDefinitionContainer>
       </WordMeaning>
+      );
     </WordSectionStyled>
   );
 };

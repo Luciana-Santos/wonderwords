@@ -6,7 +6,6 @@ const FontSelection = () => {
   const { changeFontHandler } = useContext(FontFamilyContext);
 
   const handleFontSelection = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log(e.target.value);
     changeFontHandler(e.target.value);
   };
 

@@ -1,11 +1,35 @@
+import { useContext, useState } from 'react';
+import { DictionaryContext } from '../../store/DictionaryContext';
 import { InputStyled, SearchIcon } from '../UI/Input/Input';
-import { SearchStyled } from './Search.styled';
+import { SearchButton, SearchStyled } from './Search.styled';
 
 const Search = () => {
+  const [searchValue, setSearchValue] = useState('');
+  const { fetchData } = useContext(DictionaryContext);
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!searchValue) console.log('invalid');
+    console.log(searchValue);
+
+    fetchData(searchValue);
+  };
+
   return (
     <SearchStyled>
-      <InputStyled type="text" placeholder="Word" />
-      <SearchIcon />
+      <form onSubmit={handleSearch}>
+        <InputStyled
+          type="text"
+          value={searchValue}
+          placeholder="Word"
+          title="Apenas letras são permitidas"
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
+        <SearchButton>
+          <SearchIcon />
+        </SearchButton>
+      </form>
     </SearchStyled>
   );
 };

@@ -14,7 +14,6 @@ export const FontFamilyContext = createContext({} as FontFamilyContextProps);
 const FontFamilyProvider = ({ children }: ChildrenProps) => {
   const [fontSelected, setFontSelected] = useState(() => {
     const fontSaved = localStorage.getItem('@wonderword:font');
-    console.log(fontSaved);
 
     if (fontSaved) {
       return fontSaved;
