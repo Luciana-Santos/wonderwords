@@ -10,8 +10,7 @@ const Search = () => {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!searchValue) console.log('invalid');
-    console.log(searchValue);
+    if (!searchValue || searchValue.length === 0) return;
 
     fetchData(searchValue);
   };

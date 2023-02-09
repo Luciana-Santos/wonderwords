@@ -1,7 +1,7 @@
-import { WordInfoProps } from '../store/DictionaryContext';
+import { Dictionary } from '../types/types';
 import { apiGlossary } from './api';
 
-export const getGlossary = async (word: string) => {
-  const data = await apiGlossary.get<WordInfoProps>(`${word}`);
+export const getWordMeaning = async (params: string): Promise<Dictionary[]> => {
+  const { data } = await apiGlossary.get<Dictionary[]>(params);
   return data;
 };

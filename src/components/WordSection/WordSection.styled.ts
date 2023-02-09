@@ -52,7 +52,7 @@ export const WordDefinitionContainer = styled.div`
   margin-bottom: 20px;
 `;
 
-export const WordDefinition = styled.h5`
+export const SentenceDefition = styled.h5`
   font-size: 20px;
   padding-left: 16px;
   border-left: 6px solid ${({ theme }) => theme.colors.secondary};
@@ -69,18 +69,19 @@ export const TextExemple = styled.p`
   margin-bottom: 10px;
 `;
 
-export const SynonymsContainer = styled.div``;
+export const SynonymsContainer = styled.div`
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+`;
 
-export const SynonymsWords = styled.h5`
+export const SynonymWord = styled.span`
+  border: none;
+  background: none;
   font-size: 18px;
   font-style: italic;
-  color: ${({ theme }) => theme.colors.text};
-
-  a {
-    font-weight: 400;
-    font-style: normal;
-    font-weight: 400;
-    border-bottom: 1px solid;
-    color: ${({ theme }) => theme.colors.accent};
-  }
+  font-weight: 400;
+  border-bottom: 1px solid;
+  color: ${({ theme }) => theme.colors.accent};
+  cursor: pointer;
 `;

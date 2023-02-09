@@ -1,9 +1,12 @@
+import { useContext } from 'react';
+import { DictionaryContext } from '../../store/DictionaryContext';
 import {
   AudioPlayer,
-  SynonymsWords,
+  SentenceDefition,
+  SynonymsContainer,
+  SynonymWord,
   TextExemple,
   WordClass,
-  WordDefinition,
   WordDefinitionContainer,
   WordMeaning,
   WordPronunciation,
@@ -13,62 +16,64 @@ import {
 } from './WordSection.styled';
 
 const WordSection = () => {
+  const { dictData, fetchData } = useContext(DictionaryContext);
+  const { meanings, phonetics, phonetic, word } = dictData[0];
+
+  const handleSynonyms = (event: React.MouseEvent<HTMLSpanElement>) => {
+    const textContent = event.currentTarget.textContent || '';
+    fetchData(textContent);
+  };
+
+  let audio;
+  {
+    phonetics.map((phonetic) => {
+      audio = phonetic?.audio;
+    });
+  }
+  const audioPlayer = new Audio(audio);
+
   return (
     <WordSectionStyled>
       <WordSectionHeader>
         <div>
-          <WordTitle>word</WordTitle>
-          <WordPronunciation>/'aheuh'/</WordPronunciation>
+          <WordTitle>{word}</WordTitle>
+          <WordPronunciation>{phonetic}</WordPronunciation>
         </div>
-        <AudioPlayer />
+        {audioPlayer && <AudioPlayer onClick={() => audioPlayer.play()} />}
       </WordSectionHeader>
-      <WordMeaning>
-        <WordClass>noun</WordClass>
-        <WordDefinitionContainer>
-          <WordDefinition>
-            something that causes amazement or awe; a marvel
-          </WordDefinition>
-          <TextExemple>
-            Wonders of the World seem to come in sevens.
-          </TextExemple>
-        </WordDefinitionContainer>
-        <WordDefinitionContainer>
-          <WordDefinition>
-            something astonishing and seemingly inexplicable
-          </WordDefinition>
-          <TextExemple>
-            The idea was so crazy that it is a wonder that anyone went along
-            with it.
-          </TextExemple>
-        </WordDefinitionContainer>
-      </WordMeaning>
-      <WordMeaning>
-        <WordClass>verb</WordClass>
-        <WordDefinitionContainer>
-          <WordDefinition>
-            to be affected with surprise or admiration; to be struck with
-            astonishment; to be amazed; to marvel; often followed by at
-          </WordDefinition>
-          <TextExemple>
-            The idea was so crazy that it is a wonder that anyone went along
-            with it.
-          </TextExemple>
-        </WordDefinitionContainer>
-        <WordDefinitionContainer>
-          <WordDefinition>
-            to ponder; to feel doubt and curiosity; to query in the mind
-          </WordDefinition>
-          <TextExemple>
-            He wondered whether penguins could fly. She had wondered this
-            herself sometimes.
-          </TextExemple>
+      {meanings.map((mean, i) => {
+        return (
+          <WordMeaning key={mean.partOfSpeech + i}>
+            <WordClass>{mean.partOfSpeech}</WordClass>
+            {mean.definitions.map((definition) => {
+              return (
+                <WordDefinitionContainer key={definition.definition}>
+                  <SentenceDefition>{definition.definition}</SentenceDefition>
+                  {definition.example ? (
+                    <TextExemple>{definition.example}</TextExemple>
+                  ) : null}
 
-          <SynonymsWords>
-            Synonyms: <a href="#">words</a>, <a href="#">newWord</a>
-          </SynonymsWords>
-        </WordDefinitionContainer>
-      </WordMeaning>
-      );
+                  {definition.synonyms.length >= 1 ? (
+                    <SynonymsContainer>
+                      Synonyms:
+                      {definition.synonyms.map((synonym, i) => {
+                        return (
+                          <SynonymWord
+                            key={synonym + i}
+                            onClick={handleSynonyms}
+                          >
+                            {synonym}
+                          </SynonymWord>
+                        );
+                      })}
+                    </SynonymsContainer>
+                  ) : null}
+                </WordDefinitionContainer>
+              );
+            })}
+          </WordMeaning>
+        );
+      })}
     </WordSectionStyled>
   );
 };
