@@ -6,7 +6,7 @@ import { ActionContainer, HeaderStyled } from './Header.styled';
 const Header = () => {
   return (
     <HeaderStyled>
-      <Logo>
+      <Logo href="/">
         <LogoIcon />
         <span>WonderWords</span>
       </Logo>

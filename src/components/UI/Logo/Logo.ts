@@ -1,7 +1,7 @@
 import { GiBookStorm } from 'react-icons/gi';
 import styled from 'styled-components';
 
-export const Logo = styled.div`
+export const Logo = styled.a`
   display: flex;
   gap: 6px;
   align-items: center;
