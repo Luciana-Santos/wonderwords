@@ -13,6 +13,7 @@ export const Grid = styled.div`
   gap: 10px;
   justify-content: center;
   text-align: center;
+  color: ${({ theme }) => theme.colors.text};
 
   span {
     font-size: 30px;

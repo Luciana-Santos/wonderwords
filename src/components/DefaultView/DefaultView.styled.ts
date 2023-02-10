@@ -12,4 +12,5 @@ export const DefaultViewText = styled.h1`
   margin-top: 30px;
   font-size: 18px;
   text-align: center;
+  color: ${({ theme }) => theme.colors.text};
 `;
