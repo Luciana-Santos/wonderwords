@@ -1,46 +1,59 @@
 import { createContext, useState } from 'react';
-import { getWordMeaning } from '../api/glossary-service';
-import { Dictionary } from '../types/types';
+import { getWordMeaning } from '../api/dictionary-service';
+import { DictionaryException } from '../api/DictionaryException';
+import { Dictionary, ErrorProps } from '../types/types';
 
 interface ChildrenProps {
   children: React.ReactNode;
 }
 
 interface DictionaryContextProps {
-  dictData: Dictionary[];
+  dictData: {
+    data: Dictionary[];
+    hasData: boolean;
+  };
   loading: boolean;
-  error: boolean;
-  hasData: boolean;
+  error: { hasError: boolean; error: ErrorProps };
+  resetError: () => void;
   fetchData: (word: string) => {};
 }
 
 export const DictionaryContext = createContext({} as DictionaryContextProps);
 
 const DictionaryProvider = ({ children }: ChildrenProps) => {
-  const [dictData, setDictData] = useState({} as Dictionary[]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [hasData, setHasData] = useState(false);
+  const [dictData, setDictData] = useState({
+    data: {} as Dictionary[],
+    hasData: false,
+  });
+  const [error, setError] = useState({
+    hasError: false,
+    error: {} as ErrorProps,
+  });
+
+  const resetError = () => {
+    setError({ hasError: false, error: {} as ErrorProps });
+  };
 
   const fetchData = async (word: string) => {
     let response;
     try {
       setLoading(true);
       response = await getWordMeaning(word);
-    } catch (error) {
-      setError(true);
+    } catch (error: any) {
+      setError({ hasError: true, error: error.response.data });
+      throw new DictionaryException(error.response.data.message);
     } finally {
       setLoading(false);
       if (response) {
-        setDictData(response);
-        setHasData(true);
+        setDictData({ data: response, hasData: true });
       }
     }
   };
 
   return (
     <DictionaryContext.Provider
-      value={{ dictData, loading, hasData, error, fetchData }}
+      value={{ dictData, loading, error, fetchData, resetError }}
     >
       {children}
     </DictionaryContext.Provider>

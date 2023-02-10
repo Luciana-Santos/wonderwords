@@ -1,17 +1,23 @@
+import { useContext } from 'react';
+import { DictionaryContext } from '../../store/DictionaryContext';
 import {
   ErrorMessage,
+  ErrorMessageTitle,
+  ErrorResolution,
   ErrorStyled,
   Grid,
-  TryAgainMessage,
 } from './Error.styled';
 
 const Error = () => {
+  const { error } = useContext(DictionaryContext);
+  const { error: errorData } = error;
+
   return (
     <ErrorStyled>
       <Grid>
-        <span>😔</span>
-        <ErrorMessage>Ops, something went wrong here.</ErrorMessage>
-        <TryAgainMessage>Try again!</TryAgainMessage>
+        <ErrorMessageTitle>{errorData.title} 😔</ErrorMessageTitle>
+        <ErrorMessage>{errorData.message}</ErrorMessage>
+        <ErrorResolution>{errorData.resolution}</ErrorResolution>
       </Grid>
     </ErrorStyled>
   );

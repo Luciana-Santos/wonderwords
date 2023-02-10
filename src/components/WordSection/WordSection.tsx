@@ -17,7 +17,7 @@ import {
 
 const WordSection = () => {
   const { dictData, fetchData } = useContext(DictionaryContext);
-  const { meanings, phonetics, phonetic, word } = dictData[0];
+  const { meanings, phonetics, phonetic, word } = dictData.data[0];
 
   const handleSynonyms = (event: React.MouseEvent<HTMLSpanElement>) => {
     const textContent = event.currentTarget.textContent || '';

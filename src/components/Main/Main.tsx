@@ -8,14 +8,14 @@ import WordSection from '../WordSection/WordSection';
 import { MainStyled } from './Main.styled';
 
 const Main = () => {
-  const { hasData, error, loading } = useContext(DictionaryContext);
+  const { dictData, loading, error } = useContext(DictionaryContext);
 
   return (
     <MainStyled>
       <Search />
-      {!error && !hasData && !loading && <DefaultView />}
-      {hasData && !error && <WordSection />}
-      {error && <Error />}
+      {!error.hasError && !dictData.hasData && !loading && <DefaultView />}
+      {dictData.hasData && !error.hasError && <WordSection />}
+      {error.hasError && <Error />}
       {loading && <Loading />}
     </MainStyled>
   );

@@ -10,7 +10,7 @@ export const ErrorStyled = styled.div`
 
 export const Grid = styled.div`
   display: grid;
-  gap: 10px;
+  gap: 30px;
   justify-content: center;
   text-align: center;
   color: ${({ theme }) => theme.colors.text};
@@ -20,11 +20,12 @@ export const Grid = styled.div`
   }
 `;
 
-export const ErrorMessage = styled.h1`
-  font-size: 18px;
+export const ErrorMessageTitle = styled.h1`
+  font-size: 22px;
 `;
 
-export const TryAgainMessage = styled.h4`
-  margin-top: 20px;
-  font-size: 16px;
+export const ErrorMessage = styled.p`
+  font-size: 12px;
 `;
+
+export const ErrorResolution = styled.p``;

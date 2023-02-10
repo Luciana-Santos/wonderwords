@@ -21,3 +21,9 @@ export interface Phonetic {
   text: string;
   audio: string;
 }
+
+export type ErrorProps = {
+  title: string;
+  message: string;
+  resolution: string;
+};

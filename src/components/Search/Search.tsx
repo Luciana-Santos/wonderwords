@@ -5,13 +5,14 @@ import { SearchButton, SearchStyled } from './Search.styled';
 
 const Search = () => {
   const [searchValue, setSearchValue] = useState('');
-  const { fetchData } = useContext(DictionaryContext);
+  const { fetchData, resetError } = useContext(DictionaryContext);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!searchValue || searchValue.length === 0) return;
 
+    resetError();
     fetchData(searchValue);
   };
 
