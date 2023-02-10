@@ -30,7 +30,7 @@ const DictionaryProvider = ({ children }: ChildrenProps) => {
     } catch (error) {
       setError(true);
     } finally {
-      setLoading(true);
+      setLoading(false);
       if (response) {
         setDictData(response);
         setHasData(true);
