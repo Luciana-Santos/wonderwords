@@ -1,18 +1,22 @@
 import { useContext } from 'react';
 import { DictionaryContext } from '../../store/DictionaryContext';
 import DefaultView from '../DefaultView/DefaultView';
+import Error from '../Error/Error';
+import Loading from '../Loading/Loading';
 import Search from '../Search/Search';
 import WordSection from '../WordSection/WordSection';
 import { MainStyled } from './Main.styled';
 
 const Main = () => {
-  const { hasData, error } = useContext(DictionaryContext);
+  const { hasData, error, loading } = useContext(DictionaryContext);
 
   return (
     <MainStyled>
       <Search />
-      {hasData && !error ? <WordSection /> : <DefaultView />}
-      {!hasData && error && <p>Errorrrrrrrr</p>}
+      {!error && !hasData && !loading && <DefaultView />}
+      {hasData && !error && <WordSection />}
+      {error && <Error />}
+      {loading && <Loading />}
     </MainStyled>
   );
 };

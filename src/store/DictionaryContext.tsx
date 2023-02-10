@@ -29,10 +29,8 @@ const DictionaryProvider = ({ children }: ChildrenProps) => {
       response = await getWordMeaning(word);
     } catch (error) {
       setError(true);
-      console.log(error);
     } finally {
-      setError(false);
-      setLoading(false);
+      setLoading(true);
       if (response) {
         setDictData(response);
         setHasData(true);
